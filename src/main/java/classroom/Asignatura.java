@@ -1,36 +1,33 @@
 package classroom;
 
+// Asignatura.java
 public class Asignatura {
     public String nombre;
-    public int codigoInterno;
     public int codigoExterno;
+    public int codigoInterno;
     public Tipo tipo;
 
     public Asignatura() {
-        this("Sin nombre", 0, 0, Tipo.FUNDAMENTACION);
+        this("Sin nombre", 0, Tipo.FUNDAMENTACION);
     }
 
     public Asignatura(String nombre, Tipo tipo) {
-        this(nombre, 0, 0, tipo);
+        this(nombre, 0, tipo);
     }
 
-    public Asignatura(int codigoInterno, Tipo tipo) {
-        this("Sin nombre", codigoInterno, 0, tipo);
+    public Asignatura(int codigoExterno, Tipo tipo) {
+        this("Sin nombre", codigoExterno, tipo);
     }
 
-    public Asignatura(int codigoExterno, Tipo tipo, boolean esCodigoExterno) {
-        this("Sin nombre", 0, codigoExterno, tipo);
-    }
-
-    public Asignatura(String nombre, int codigoInterno, int codigoExterno, Tipo tipo) {
+    public Asignatura(String nombre, int codigoExterno, int codigoInterno, Tipo tipo) {
         this.nombre = nombre;
-        this.codigoInterno = codigoInterno;
         this.codigoExterno = codigoExterno;
+        this.codigoInterno = codigoInterno;
         this.tipo = tipo;
     }
 
-    public void setCodigoInterno(int codigoInterno) {
-        this.codigoInterno = codigoInterno;
+    public Asignatura(String nombre, int codigoExterno, Tipo tipo) {
+        this(nombre, codigoExterno, 0, tipo);
     }
 
     public void cambiarDatos(String nombre) {
@@ -41,19 +38,4 @@ public class Asignatura {
         this.codigoExterno = codigoExterno;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public int getCodigoInterno() {
-        return codigoInterno;
-    }
-
-    public int getCodigoExterno() {
-        return codigoExterno;
-    }
-
-    public Tipo getTipo() {
-        return tipo;
-    }
-}
+    public void
