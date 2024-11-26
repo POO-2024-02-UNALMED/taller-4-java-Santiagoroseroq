@@ -16,21 +16,22 @@ public class Grupo {
     }
 
     public Grupo(int cantidadEstudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
-        this(new Persona[cantidadEstudiantes], profesor, asignatura, codigo, horario);
+        this.estudiantes = new Persona[cantidadEstudiantes];
+        this.profesor = profesor;
+        this.asignatura = asignatura;
+        this.codigo = codigo;
+        this.horario = horario;
     }
 
-    public int getCodigo() {
-        return codigo;
+    public void cambiarEstudiante(int posicion, Persona estudiante) {
+        this.estudiantes[posicion] = estudiante;
     }
 
-    public void cambiarEstudiante(int indice, Persona estudiante) {
-        this.estudiantes[indice] = estudiante;
-    }
-
-    public void cambiarEstudiante(Persona estudiante1, Persona estudiante2) {
-        for (int i = 0; i < estudiantes.length; i++) {
-            if (estudiantes[i] == estudiante1) {
-                estudiantes[i] = estudiante2;
+    public void cambiarEstudiante(Persona estudianteAnterior, Persona estudianteNuevo) {
+        for (int i = 0; i < this.estudiantes.length; i++) {
+            if (this.estudiantes[i] == estudianteAnterior) {
+                this.estudiantes[i] = estudianteNuevo;
+                break;
             }
         }
     }
