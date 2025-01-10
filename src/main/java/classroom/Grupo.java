@@ -1,11 +1,11 @@
 package classroom;
 
 public class Grupo {
-    private Persona[] estudiantes;
-    private Persona profesor;
-    private Asignatura asignatura;
-    private int codigo;
-    private String horario;
+    public Persona[] estudiantes;
+    public Persona profesor;
+    public Asignatura asignatura;
+    public int codigo;
+    public String horario;
 
     public Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
         this.estudiantes = estudiantes;
@@ -16,35 +16,23 @@ public class Grupo {
     }
 
     public Grupo(int cantidadEstudiantes, Persona profesor, Asignatura asignatura, int codigo, String horario) {
-        this.estudiantes = new Persona[cantidadEstudiantes];
-        this.profesor = profesor;
-        this.asignatura = asignatura;
-        this.codigo = codigo;
-        this.horario = horario;
+        this(new Persona[cantidadEstudiantes], profesor, asignatura, codigo, horario);
     }
 
-    public int getCodigo() {
-        return codigo;
+    public Grupo(Persona[] estudiantes, Persona profesor, Asignatura asignatura) {
+        this(estudiantes, profesor, asignatura, 0, "");
     }
 
-    public Persona getProfesor() {
-        return profesor;
-    }
-
-    public Persona[] getEstudiantes() {
-        return estudiantes;
-    }
-
-    public void cambiarEstudiante(int posicion, Persona estudiante) {
-        this.estudiantes[posicion] = estudiante;
-    }
-
-    public void cambiarEstudiante(Persona estudianteActual, Persona estudianteNuevo) {
+    public void cambiarEstudiante(Persona estudianteViejo, Persona estudianteNuevo) {
         for (int i = 0; i < estudiantes.length; i++) {
-            if (estudiantes[i] == estudianteActual) {
+            if (estudiantes[i].getCedula() == estudianteViejo.getCedula()) {
                 estudiantes[i] = estudianteNuevo;
                 break;
             }
         }
+    }
+
+    public void cambiarEstudiante(int indice, Persona estudiante) {
+        estudiantes[indice] = estudiante;
     }
 }
