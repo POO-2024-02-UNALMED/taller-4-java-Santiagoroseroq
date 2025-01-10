@@ -1,64 +1,63 @@
 package classroom;
 
 public class Asignatura {
-    private String nombre;
-    private int codigoExterno;
-    private int codigoInterno;
-    private Tipo tipo;
+    public String nombre;
+    public int codigoInterno;
+    public int codigoExterno;
+    public Tipo tipo;
 
-    public Asignatura() {
-        this.nombre = "Sin nombre";
-        this.codigoExterno = 0;
-        this.codigoInterno = 0;
-        this.tipo = Tipo.FUNDAMENTACION;
-    }
-
-    public Asignatura(String nombre, Tipo tipo) {
+    public Asignatura(String nombre, int codigoInterno, int codigoExterno, Tipo tipo) {
         this.nombre = nombre;
-        this.codigoExterno = 0;
-        this.codigoInterno = 0;
+        this.codigoInterno = codigoInterno;
+        this.codigoExterno = codigoExterno;
         this.tipo = tipo;
     }
 
     public Asignatura(int codigoExterno, Tipo tipo) {
-        this.nombre = "Sin nombre";
-        this.codigoExterno = codigoExterno;
-        this.codigoInterno = 0;
-        this.tipo = tipo;
+        this("Sin nombre", 0, codigoExterno, tipo);
+    }
+    public Asignatura(int codigoInterno, Tipo tipo) {
+        this("Sin nombre", codigoInterno, codigoInterno, tipo);
+    }
+    public Asignatura() {
+        this("Sin nombre", 0, 0, Tipo.FUNDAMENTACION);
     }
 
-    public Asignatura(String nombre, int codigoExterno, int codigoInterno, Tipo tipo) {
+
+
+    public Asignatura(String nombre, Tipo tipo) {
+        this(nombre, 0, 0, tipo);
+    }
+
+    public Asignatura(String nombre, int codigoExterno, Tipo tipo) {
+        this(nombre, 0, codigoExterno, tipo);
+    }
+
+    public void cambiarDatos(int codigoInterno, int codigoExterno, String nombre, Tipo tipo) {
+        this.codigoInterno = codigoInterno;
+        this.codigoExterno = codigoExterno;
         this.nombre = nombre;
-        this.codigoExterno = codigoExterno;
-        this.codigoInterno = codigoInterno;
         this.tipo = tipo;
     }
-
-    public String getNombre() {
-        return nombre;
+    public void cambiarDatos(int codigoExterno) {
+        this.codigoExterno = codigoExterno;
+    
     }
 
-    public int getCodigoExterno() {
-        return codigoExterno;
-    }
-
-    public int getCodigoInterno() {
-        return codigoInterno;
-    }
-
-    public Tipo getTipo() {
-        return tipo;
-    }
-
-    public void setCodigoInterno(int codigoInterno) {
+    public void cambiarDatos(int codigoInterno) {
         this.codigoInterno = codigoInterno;
+      
     }
 
     public void cambiarDatos(String nombre) {
         this.nombre = nombre;
     }
 
-    public void cambiarDatos(int codigoInterno) {
+    public void setCodigoInterno(int codigoInterno) {
         this.codigoInterno = codigoInterno;
+    }
+
+    public void setCodigoExterno(int codigoExterno){
+        this.codigoExterno = codigoExterno;
     }
 }
